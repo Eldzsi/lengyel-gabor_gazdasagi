@@ -1,6 +1,6 @@
 x = c(3.7, 3.8, 4.0, 4.1, 4.4)
 sigma = 0.1
-m0 = 3.9
+m0 = 3
 interval = c(-1.96, 1.96)
 
 calc_avg = function(x) {
