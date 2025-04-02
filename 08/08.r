@@ -3,7 +3,7 @@ c_values = c(-2.0, -1.5, -1.0, -0.5, 0, 0.5, 1.0, 1.5, 2.0)
 
 normal_distribution_test = function() {
     if (length(k) == 0) {
-        stop("Error: Invalid k vecto length!")
+        stop("Error: Invalid k vector length!")
     }
 
     if (length(c_values) == 0) {
