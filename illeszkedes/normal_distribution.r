@@ -6,6 +6,12 @@ normal_distribution_test = function() {
         stop("Error: Invalid k vector length!")
     }
 
+    for (i in 1:length(k)) {
+        if (k[i] < 0) {
+            stop("Error: Negative value in k vector!")
+        }
+    }
+
     if (length(c_values) == 0) {
         stop("Error: Invalid c_values vector length!")
     }
