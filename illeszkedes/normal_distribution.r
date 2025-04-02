@@ -10,7 +10,7 @@ normal_distribution_test = function() {
         stop("Error: Invalid c_values vector length!")
     }
 
-    if (length(c_values)+1 != length(k)) {
+    if (length(c_values) != length(k)-1) {
         stop("Error: Invalid vector lengths!")
     }
 
