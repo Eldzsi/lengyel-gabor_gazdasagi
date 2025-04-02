@@ -9,7 +9,7 @@ main = function(k) {
 
     cat("N =", N, "\n")
 
-    s = 0
+    khi = 0
     for (i in 1:length(k)) {
         p = 0
         if (i == 1) {
@@ -22,10 +22,10 @@ main = function(k) {
 
         cat(sprintf("p%d = %.4f\n", i, p))
 
-        s = s + (k[i] - p * N)^2 / (p * N) 
+        khi = khi + (k[i] - p * N)^2 / (p * N) 
     }
 
-    cat("sum =", s, "\n")
+    cat("khi =", khi, "\n")
 
 }
 
