@@ -1,0 +1,73 @@
+x = c(3, 3, 17, 8, 2, 8, 12, 3, 17, 17, 5, 1, 16)
+
+
+calc_avg = function(x) {
+    sum = 0
+    n = length(x)
+    for (i in 1:n) {
+        sum = sum + x[i]
+    }
+    return(sum/n)
+}
+
+
+calc_median = function(x) {
+    n = length(x)
+    sorted_x = sort(x, decreasing = FALSE)
+
+    if (n %% 2 == 0) {
+        return((sorted_x[n/2] + sorted_x[n/2 + 1]) / 2)
+    } else {
+        return(sorted_x[(n + 1) / 2])
+    }
+}
+
+
+calc_mode = function(x) {
+    values = c()
+    freqs = c()
+    modes = c()
+    n = length(x)
+
+    for (i in 1:n) {
+        found = FALSE
+
+        if (length(values) == 0) {
+            values = c(values, x[i])
+            freqs = c(freqs, 1)
+            next
+        }
+
+        for (j in 1:length(values)) {
+            if (x[i] == values[j]) {
+                found = TRUE
+                freqs[j] = freqs[j] + 1
+                break
+            }
+        }
+
+        if (!found) {
+            values = c(values, x[i])
+            freqs = c(freqs, 1)
+        }
+    }
+
+    max_freq = max(freqs)
+
+    for (i in 1:length(freqs)) {
+        if (freqs[i] == max_freq) {
+            modes = c(modes, values[i])
+        }
+    }
+
+    return(modes)
+}
+
+
+cat("x =",  paste(x, collapse = ", "), "\n")
+avg = calc_avg(x)
+cat("Átlag:", avg, "\n")
+med = calc_median(x)
+cat("Medián:", med, "\n")
+modes = calc_mode(x)
+cat("Módusz:", paste(modes, collapse = ", "), "\n")
