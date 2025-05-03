@@ -1,6 +1,6 @@
-x = c(3.7, 3.8, 4.0, 4.1, 4.4)
-sigma = 0.1
-m0 = 3
+x = c(105)
+sigma = 16
+m0 = 100
 interval = c(-1.96, 1.96)
 
 calc_avg = function(x) {
@@ -23,7 +23,8 @@ is_number_in_interval = function(x, lower, upper) {
 }
 
 calc_u = function(x, m, sigma) {
-    return((calc_avg(x) - m) / (sigma / sqrt(length(x))))
+    n = length(x)
+    return((calc_avg(x) - m) / (sigma / sqrt(n)))
 }
 
 u_value = calc_u(x, m0, sigma)

@@ -1,4 +1,4 @@
-k = matrix(c(15, 10, 5, 10, 10, 20, 5, 20, 5), nrow = 3, byrow = TRUE)
+k = matrix(c(18, 35, 37, 32, 48, 30, 18, 20, 12), nrow = 3, byrow = TRUE)
 
 main = function(k) {
     if (ncol(k) == 0 || nrow(k) == 0) {
@@ -27,10 +27,10 @@ main = function(k) {
     cat("Khi =", khi, "\n")
     cat("p =", p, "\n")
 
-    if (p < 0.05) {
+    if (p < 0.1) {
         cat("Nem fuggetlenek\n")
     } else {
-        cat("Fuggetlenek.)\n")
+        cat("Fuggetlenek.\n")
     }
 }
 
