@@ -1,6 +1,6 @@
 x = c(1, 2, 3, 4)
 y = c(5, 2.3, 3.2, 7)
-x0 = 5
+x0 = 6
 
 lagrange_interpolation = function(x, y, x0) {
     n = length(x)
