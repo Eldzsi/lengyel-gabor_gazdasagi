@@ -9,9 +9,9 @@ lagrange_interpolation = function(x, y, x0) {
     for (i in 1:n) {
         L[i] = 1
         for (j in 1:n) {
-        if (i != j) {
-            L[i] = L[i] * (x0 - x[j]) / (x[i] - x[j])
-        }
+            if (i != j) {
+                L[i] = L[i] * (x0 - x[j]) / (x[i] - x[j])
+            }
         }
     }
   

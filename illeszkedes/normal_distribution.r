@@ -46,5 +46,11 @@ normal_distribution_test = function() {
     return(khi)
 }
 
-khi = normal_distribution_test()
+result = normal_distribution_test()
 cat("khi =", khi, "\n")
+
+if (result < qchisq(0.95, length(k)-1)) {
+    print("Elfogadjuk H0-t.")
+} else {
+    print("Elutasítjuk H0-t.")
+}

@@ -29,7 +29,6 @@ calc_sn = function(x, n) {
         sn = sn + (i - avg)^2
     }
 
-    print(sqrt( 1/(n-1) * sn ))
     return(sqrt( 1/(n-1) * sn ))
 }
 

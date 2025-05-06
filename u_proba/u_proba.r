@@ -3,6 +3,13 @@ sigma = 16
 m0 = 100
 interval = c(-1.96, 1.96)
 
+calc_u = function(x, m, sigma) {
+    n = length(x)
+    n = 71
+
+    return((calc_avg(x) - m) / (sigma / sqrt(n)))
+}
+
 calc_avg = function(x) {
     if (length(x) == 0) {
         stop("Error: The vector is empty!")
@@ -20,11 +27,6 @@ is_number_in_interval = function(x, lower, upper) {
         stop("Error: Invalid range")
     }
     return(x >= lower && x <= upper)
-}
-
-calc_u = function(x, m, sigma) {
-    n = length(x)
-    return((calc_avg(x) - m) / (sigma / sqrt(n)))
 }
 
 u_value = calc_u(x, m0, sigma)

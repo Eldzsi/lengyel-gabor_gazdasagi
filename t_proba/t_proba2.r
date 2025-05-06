@@ -41,15 +41,6 @@ calc_t = function(x, y) {
     sn1 = calc_sn(x, n1)
     sn2 = calc_sn(y, n2)
 
-    print(" ")
-    print(x_avg)
-    print(y_avg)
-    print(n1-1)
-    print(sn1)
-    print(n2-1)
-    print(sn2)
-    print(" ")
-
     numerator = x_avg - y_avg
     denominator = sqrt((n1 - 1) * sn1 + (n2 - 1) * sn2)
     multiplier = sqrt((n1 * n2 * (n1 + n2 - 2)) / (n1 + n2))

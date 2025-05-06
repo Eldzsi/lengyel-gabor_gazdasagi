@@ -36,7 +36,6 @@ chi_square = function(k, p, N) {
 
 result = chi_square(k, p, N)
 cat("Result:", toString(result), "\n")
-cat("DF:", length(k)-1, "\n")
 
 if (result < qchisq(0.95, length(k)-1)) {
     print("Elfogadjuk H0-t.")

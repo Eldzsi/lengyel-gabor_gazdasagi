@@ -1,6 +1,6 @@
-k = matrix(c(18, 35, 37, 32, 48, 30, 18, 20, 12), nrow = 3, byrow = TRUE)
+k = matrix(c(15, 10, 5, 10, 10, 20, 5, 20, 5), nrow = 3, byrow = TRUE)
 
-main = function(k) {
+test_of_independence = function(k) {
     if (ncol(k) == 0 || nrow(k) == 0) {
         stop("Error: Invalid k matrix!")
     }
@@ -8,30 +8,31 @@ main = function(k) {
     N = sum(k)
     khi = 0
     df = (nrow(k)-1) * (ncol(k)-1)
-
-    cat("DF =", df, "\n")
-    cat("N =", N, "\n")
-
-    row_sums = rowSums(k)
-    col_sums = colSums(k)
+    row_sum = rowSums(k)
+    col_sum = colSums(k)
 
     for (i in 1:nrow(k)) {
         for (j in 1:ncol(k)) {
-            expected = (row_sums[i] * col_sums[j]) / N
-            khi = khi + ((k[i, j] - expected)^2 / expected)
+            khi = khi + ((k[i, j] - (row_sum[i] * col_sum[j] / N))^2 / ((row_sum[i] * col_sum[j]) / N))
         }
     }
 
-    p = 1 - pchisq(khi, 4)
+    p = 1 - pchisq(khi, df)
 
+    cat("row_sum =", row_sum, "\n")
+    cat("col_sum =", col_sum, "\n")
+    cat("N =", N, "\n")
+    cat("DF =", df, "\n")
     cat("Khi =", khi, "\n")
     cat("p =", p, "\n")
 
-    if (p < 0.1) {
-        cat("Nem fuggetlenek\n")
+    if (p < 0.05) {
+        cat("Nem fuggetlenek.\n")
     } else {
         cat("Fuggetlenek.\n")
     }
 }
 
-main(k)
+test_of_independence(k)
+
+# print(chisq.test(k))
