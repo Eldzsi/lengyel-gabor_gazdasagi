@@ -17,19 +17,19 @@ test_of_independence = function(k) {
         }
     }
 
-    p = 1 - pchisq(khi, df)
+    crit = qchisq(0.95, df)
 
     cat("row_sum =", row_sum, "\n")
     cat("col_sum =", col_sum, "\n")
     cat("N =", N, "\n")
     cat("DF =", df, "\n")
     cat("Khi =", khi, "\n")
-    cat("p =", p, "\n")
+    cat("crit =", crit, "\n")
 
-    if (p < 0.05) {
-        cat("Nem fuggetlenek.\n")
-    } else {
+    if (khi < crit) {
         cat("Fuggetlenek.\n")
+    } else {
+        cat("Nem fuggetlenek.\n")
     }
 }
 
